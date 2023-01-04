@@ -1,0 +1,54 @@
+﻿@model AccountViewModel
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container col-md-6">
+    <form method="post">
+        <br />
+        <div class="col-md-6">
+            <label>Gönderici:</label>
+        </div>
+        <div class="col-md-6">
+            <select class="form-select js-example-basic-single" aria-label="Default select example" asp-for="SenderID">
+                @foreach (var item in ViewBag.accountList)
+                {
+                <option value="@item.AccountID">@item.AccountName (Bakiye=@item.AccountBalance)</option>
+                }
+            </select>
+        </div>
+
+        @*<input type="text" asp-for="SenderID" class="form-control" />*@
+
+        <br />
+        <div class="col-md-6">
+            <label>Alıcı:</label>
+        </div>
+        <div class="col-md-6">
+            <select class="form-select" aria-label="Default select example" asp-for="ReceiverID">
+                @foreach (var item in ViewBag.accountList)
+                {
+                <option value="@item.AccountID">@item.AccountName (Bakiye=@item.AccountBalance)</option>
+                }
+            </select>
+        </div>
+        <br />
+        <div class="col-md-6">
+            <label>Gönderilecek Tutar</label>
+        </div>
+        <div class="col-md-4">
+            <input type="text" asp-for="Amount" class="form-control" />
+        </div>
+        <br />
+        <div class="col-md-6">
+            <button class="btn btn-outline-success">Para Gönder</button>
+            <a href="/Account/ProcessDetailIndex/" class="btn btn-outline-warning">Yapılan işlemleri gör</a>
+        </div>
+        <div class="col-md-6">
+           
+        </div>
+        <br />
+       
+    </form>
+   
+</div>

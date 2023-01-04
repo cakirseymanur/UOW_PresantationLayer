@@ -1,0 +1,31 @@
+﻿@model List<ProcessDetail>
+@{
+    Layout = null;
+    var count = 0;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+
+    <h3>Süreçler</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Gönderen</th>
+            <th>Alıcı</th>
+            <th>Miktar</th>
+            <th>Tarih</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.SenderName</td>
+                <td>@item.RecieverName</td>
+                <td>@item.Amount</td>
+                <td>@item.ProcessDate.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </table>
+    <a href="/Account/Index/" class="btn btn-outline-dark">Yeni İşlem</a>
+</div>
