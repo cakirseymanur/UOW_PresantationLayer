@@ -10,7 +10,7 @@
             <label>Gönderici:</label>
         </div>
         <div class="col-md-6">
-            <select class="form-select js-example-basic-single" aria-label="Default select example" asp-for="SenderID">
+            <select class="form-select" asp-for="SenderID">
                 @foreach (var item in ViewBag.accountList)
                 {
                 <option value="@item.AccountID">@item.AccountName (Bakiye=@item.AccountBalance)</option>
@@ -25,7 +25,7 @@
             <label>Alıcı:</label>
         </div>
         <div class="col-md-6">
-            <select class="form-select" aria-label="Default select example" asp-for="ReceiverID">
+            <select class="form-select" asp-for="ReceiverID">
                 @foreach (var item in ViewBag.accountList)
                 {
                 <option value="@item.AccountID">@item.AccountName (Bakiye=@item.AccountBalance)</option>
